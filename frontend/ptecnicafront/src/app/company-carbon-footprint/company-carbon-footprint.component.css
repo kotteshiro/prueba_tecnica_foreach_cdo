@@ -2,6 +2,7 @@ div.component{
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 div.box1{
     background-color: #f4ff9f;
@@ -13,6 +14,7 @@ div.box1{
     box-shadow: 3px 3px #CCC;
     padding: 3px;
     width: 12rem;
+    gap: 1rem;
 }
 div.ammount{
     font-size: 2rem;

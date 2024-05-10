@@ -1,0 +1,13 @@
+form{
+    display: flex;
+    flex-direction: column;
+}
+div.formulario{
+    max-width: 33rem;
+    width: 100%;
+}
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

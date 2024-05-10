@@ -1,9 +1,22 @@
 <nav>
-    <a routerLink="">Inicio</a>
-    <a routerLink="/viajes">Ver Viajes</a>
-    <a routerLink="/nuevo-viaje">Registrar Viaje</a>
-  </nav>
-<div>
+  <mat-toolbar>
+    <mat-toolbar-row>
+    <button mat-button routerLink="">
+      <mat-icon>home</mat-icon>
+      Inicio
+    </button>
+    <button mat-button routerLink="/viajes">
+      <mat-icon>list</mat-icon>
+      Ver Viajes
+    </button>
+    <button mat-button routerLink="/nuevo-viaje">
+      <mat-icon>edit-note</mat-icon>
+      Registrar Viaje
+    </button>
+  </mat-toolbar-row>
+  </mat-toolbar>
+</nav>
 
+<div class="routezone">
   <router-outlet />
 </div>

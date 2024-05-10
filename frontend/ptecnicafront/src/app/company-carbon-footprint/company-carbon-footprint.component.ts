@@ -1,7 +1,11 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Companyco2 } from '../companyco2';
+
+interface Companyco2Interface {
+  total: number;
+}
+
 @Component({
   selector: 'app-company-carbon-footprint',
   standalone: true,
@@ -10,17 +14,17 @@ import { Companyco2 } from '../companyco2';
   styleUrl: './company-carbon-footprint.component.css'
 })
 export class CompanyCarbonFootprintComponent {
-  ammount:Companyco2 = {total:0};
+  ammount: Companyco2Interface = { total: 0 };
   client = inject(HttpClient);
   ngOnInit(): void {
     this.fetchData();
   }
-  fetchData(){
-    this.client.get("http://localhost/company-carbon-footprint").subscribe((data:any) => {
+  fetchData() {
+    this.client.get("http://localhost/company-carbon-footprint").subscribe((data: any) => {
       console.log(data)
       this.ammount = data;
     }
-  )
+    )
   }
   // getData = async function() {
   //   const response = await fetch("http://localhost/company-carbon-footprint");

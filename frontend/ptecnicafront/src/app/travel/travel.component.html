@@ -1,28 +1,61 @@
-<p>travel works!</p>
-<form [formGroup]="formulario">
-    <label for="addrStart">Dirección de origen</label>
-    <input id="addrStart" type="text" formControlName="addrStart">
+<section>
+    <p>travel works!</p>
+    <div class="formulario">
 
-    <label for="addrEnd">Dirección de destino</label>
-    <input id="addrEnd" type="text" formControlName="addrEnd">
+        <form [formGroup]="formulario">
+            <mat-form-field>
+                <mat-label>Dirección de origen</mat-label>
+                <input matInput id="addrStart" type="text" formControlName="addrStart">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Dirección de destino</mat-label>
+                <input matInput id="addrEnd" type="text" formControlName="addrEnd">
+            </mat-form-field>
 
-    <label for="transport">Medio de Transporte</label>
-    <select id="transport" formControlName="transport">
-        <option>Metro</option>
-        <option>Auto</option>
-    </select>
+            <!-- <mat-form-field >
+        <mat-label for="transport">Medio de Transporte</mat-label>
+        <select id="transport" formControlName="transport">
+            <option>Metro</option>
+            <option>Auto</option>
+        </select>
+    </mat-form-field> -->
+            <mat-form-field>
+                <mat-label>Transporte</mat-label>
+                <mat-select id="transport" formControlName="transport">
+                    @for (transporte of transportes; track transporte) {
+                    <mat-option [value]="transporte.value">{{transporte.label}}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Fecha del Viaje</mat-label>
+                <input matInput [matDatepicker]="traveldate">
+                <mat-datepicker-toggle matIconSuffix [for]="traveldate"></mat-datepicker-toggle>
+                <mat-datepicker #traveldate></mat-datepicker>
+            </mat-form-field>
 
-    <label for="date">Dirección de destino</label>
-    <input id="date" type="date" formControlName="date">
+            <!-- <mat-form-field >
+        <mat-label>Fecha del Viaje</mat-label>
+        <input matInput id="date" type="date" formControlName="date">
+    </mat-form-field> -->
 
-    <label for="distance">Distancia</label>
-    <input id="distance" type="number" formControlName="distance">
+            <mat-form-field>
+                <mat-label>Distancia</mat-label>
+                <input matInput id="distance" type="number" formControlName="distance">
+            </mat-form-field>
 
-    <label for="workerName">Nombre del Trabajador</label>
-    <input id="workerName" type="text" formControlName="workerName">
+            <mat-form-field>
+                <mat-label>Nombre del Trabajador</mat-label>
+                <input matInput id="workerName" type="text" formControlName="workerName">
+            </mat-form-field>
 
-    <label for="isRoundTrip">¿Ida y Vuelta?</label>
-    <input id="isRoundTrip" type="checkbox" formControlName="isRoundTrip">
 
+            <mat-checkbox id="isRoundTrip" formControlName="isRoundTrip">¿Ida y Vuelta?</mat-checkbox>
+            <!-- <mat-form-field>
+        <mat-label>¿Ida y Vuelta?</mat-label>
+    </mat-form-field> -->
+            <button mat-button color="primary" type="submit">Guardar</button>
+        </form>
+    </div>
 
-</form>
+</section>
