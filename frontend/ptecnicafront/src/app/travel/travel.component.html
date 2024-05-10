@@ -1,0 +1,28 @@
+<p>travel works!</p>
+<form [formGroup]="formulario">
+    <label for="addrStart">Dirección de origen</label>
+    <input id="addrStart" type="text" formControlName="addrStart">
+
+    <label for="addrEnd">Dirección de destino</label>
+    <input id="addrEnd" type="text" formControlName="addrEnd">
+
+    <label for="transport">Medio de Transporte</label>
+    <select id="transport" formControlName="transport">
+        <option>Metro</option>
+        <option>Auto</option>
+    </select>
+
+    <label for="date">Dirección de destino</label>
+    <input id="date" type="date" formControlName="date">
+
+    <label for="distance">Distancia</label>
+    <input id="distance" type="number" formControlName="distance">
+
+    <label for="workerName">Nombre del Trabajador</label>
+    <input id="workerName" type="text" formControlName="workerName">
+
+    <label for="isRoundTrip">¿Ida y Vuelta?</label>
+    <input id="isRoundTrip" type="checkbox" formControlName="isRoundTrip">
+
+
+</form>

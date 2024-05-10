@@ -1,0 +1,16 @@
+nav {
+    display: flex;
+    min-width: 300px;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+nav > a{
+    font-size: 1rem;
+    text-decoration: none;
+    display: flex;
+    border: 1px solid #000;
+    border-radius: 1rem;
+    box-shadow: 3px 3px #CCC;
+    padding: 0.3rem 1rem;
+}

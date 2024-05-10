@@ -1,0 +1,13 @@
+h1{
+color: #09f;
+}
+h3{
+    color: #33F;
+}
+div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ccc;
+    margin-top: 3rem;
+}
