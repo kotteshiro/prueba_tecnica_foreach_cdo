@@ -1,8 +1,18 @@
 <section>
-    <p>travel works!</p>
+    @if(formulario.value!.id! >= 0){
+        <h2>Modificando Registro de viaje #{{formulario.value!.id}}</h2>
+        <span class="carbonmsg">Huella de carbono actual: {{carbonFootPrint | number}}kg</span>
+        <br>
+    }    
     <div class="formulario">
 
-        <form [formGroup]="formulario">
+        <form [formGroup]="formulario" (submit)="saveTravel()">
+            @if(formulario.value!.id! >= 0){
+            <mat-form-field>
+                <mat-label>ID</mat-label>
+                <input matInput id="id" type="number" formControlName="id" readonly="readonly">
+            </mat-form-field>
+            }
             <mat-form-field>
                 <mat-label>Dirección de origen</mat-label>
                 <input matInput id="addrStart" type="text" formControlName="addrStart">
@@ -12,35 +22,24 @@
                 <input matInput id="addrEnd" type="text" formControlName="addrEnd">
             </mat-form-field>
 
-            <!-- <mat-form-field >
-        <mat-label for="transport">Medio de Transporte</mat-label>
-        <select id="transport" formControlName="transport">
-            <option>Metro</option>
-            <option>Auto</option>
-        </select>
-    </mat-form-field> -->
             <mat-form-field>
                 <mat-label>Transporte</mat-label>
                 <mat-select id="transport" formControlName="transport">
-                    @for (transporte of transportes; track transporte) {
-                    <mat-option [value]="transporte.value">{{transporte.label}}</mat-option>
-                    }
+                @for (transporte of trasportList; track transporte.id) {
+                    <mat-option [value]="transporte.id">{{transporte.label}}</mat-option>
+                }
                 </mat-select>
             </mat-form-field>
+
             <mat-form-field>
                 <mat-label>Fecha del Viaje</mat-label>
-                <input matInput [matDatepicker]="traveldate">
+                <input matInput [matDatepicker]="traveldate" formControlName="traveldate">
                 <mat-datepicker-toggle matIconSuffix [for]="traveldate"></mat-datepicker-toggle>
                 <mat-datepicker #traveldate></mat-datepicker>
             </mat-form-field>
 
-            <!-- <mat-form-field >
-        <mat-label>Fecha del Viaje</mat-label>
-        <input matInput id="date" type="date" formControlName="date">
-    </mat-form-field> -->
-
             <mat-form-field>
-                <mat-label>Distancia</mat-label>
+                <mat-label>Distancia (km)</mat-label>
                 <input matInput id="distance" type="number" formControlName="distance">
             </mat-form-field>
 
@@ -49,13 +48,15 @@
                 <input matInput id="workerName" type="text" formControlName="workerName">
             </mat-form-field>
 
-
             <mat-checkbox id="isRoundTrip" formControlName="isRoundTrip">¿Ida y Vuelta?</mat-checkbox>
-            <!-- <mat-form-field>
-        <mat-label>¿Ida y Vuelta?</mat-label>
-    </mat-form-field> -->
-            <button mat-button color="primary" type="submit">Guardar</button>
+ 
+            <button mat-button color="primary" type="submit">Guardar <mat-icon>save</mat-icon></button>
+            @if(formulario.value!.id! >= 0){
+                <button mat-button color="warn" type="button" (click)="deletethis()">Eliminar <mat-icon>delete</mat-icon></button>
+            }
         </form>
     </div>
+    <br><br>
+    <!-- {{formulario.value | json}} -->
 
 </section>

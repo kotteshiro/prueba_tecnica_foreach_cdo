@@ -5,14 +5,20 @@
       <mat-icon>home</mat-icon>
       Inicio
     </button>
-    <button mat-button routerLink="/viajes">
+    <button mat-button routerLink="/traslados">
       <mat-icon>list</mat-icon>
-      Ver Viajes
+      Ver Traslados
     </button>
-    <button mat-button routerLink="/nuevo-viaje">
+    <button mat-button routerLink="/nuevo-traslado">
       <mat-icon>edit-note</mat-icon>
-      Registrar Viaje
+      Registrar Traslado
     </button>
+    <a href="{{api_url}}export" target="_blank">
+      <button mat-button>
+        <mat-icon>download</mat-icon>
+        Exportar a Excel
+      </button>
+    </a>
   </mat-toolbar-row>
   </mat-toolbar>
 </nav>

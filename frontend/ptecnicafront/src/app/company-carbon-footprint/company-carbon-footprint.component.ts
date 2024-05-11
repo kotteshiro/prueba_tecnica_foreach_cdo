@@ -1,7 +1,7 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { API_CONFIG } from '../app.config';
 interface Companyco2Interface {
   total: number;
 }
@@ -16,20 +16,20 @@ interface Companyco2Interface {
 export class CompanyCarbonFootprintComponent {
   ammount: Companyco2Interface = { total: 0 };
   client = inject(HttpClient);
-  ngOnInit(): void {
-    this.fetchData();
-  }
   fetchData() {
-    this.client.get("http://localhost/company-carbon-footprint").subscribe((data: any) => {
+    this.client.get(API_CONFIG.api_url + "company-carbon-footprint").subscribe((data: any) => {
       console.log(data)
       this.ammount = data;
     }
-    )
-  }
+  )
+}
   // getData = async function() {
-  //   const response = await fetch("http://localhost/company-carbon-footprint");
+  //   const response = await fetch(API_CONFIG.api_url + "company-carbon-footprint");
   //   const carbonfootprint = await response.json();
   //   console.log(carbonfootprint);
   //   this.ammount = carbonfootprint.total;
   // }
+  ngOnInit(): void {
+    this.fetchData();
+  }
 }

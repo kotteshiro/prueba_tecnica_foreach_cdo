@@ -3,6 +3,7 @@ import { RouterModule, RouterOutlet } from '@angular/router';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { API_CONFIG } from './app.config';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -11,9 +12,5 @@ import {MatToolbarModule} from '@angular/material/toolbar';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  logMovies = async function() {
-    const response = await fetch("http://localhost/");
-    const movies = await response.json();
-    console.log(movies);
-  }
+  api_url = API_CONFIG.api_url;
 }

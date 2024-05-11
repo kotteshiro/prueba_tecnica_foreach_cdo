@@ -11,3 +11,8 @@ section{
     flex-direction: column;
     align-items: center;
 }
+span.carbonmsg{
+    background-color: #222;
+    color: #EEE;
+    padding: 1em;
+}
