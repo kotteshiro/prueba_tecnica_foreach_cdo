@@ -21,15 +21,11 @@ export class CompanyCarbonFootprintComponent {
       console.log(data)
       this.ammount = data;
     }
-  )
-}
-  // getData = async function() {
-  //   const response = await fetch(API_CONFIG.api_url + "company-carbon-footprint");
-  //   const carbonfootprint = await response.json();
-  //   console.log(carbonfootprint);
-  //   this.ammount = carbonfootprint.total;
-  // }
+    )
+  }
+
   ngOnInit(): void {
     this.fetchData();
   }
+
 }

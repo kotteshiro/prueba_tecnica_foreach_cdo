@@ -1,28 +1,30 @@
-<nav>
-  <mat-toolbar>
-    <mat-toolbar-row>
-    <button mat-button routerLink="">
-      <mat-icon>home</mat-icon>
-      Inicio
-    </button>
-    <button mat-button routerLink="/traslados">
-      <mat-icon>list</mat-icon>
-      Ver Traslados
-    </button>
-    <button mat-button routerLink="/nuevo-traslado">
-      <mat-icon>edit-note</mat-icon>
-      Registrar Traslado
-    </button>
-    <a href="{{api_url}}export" target="_blank">
-      <button mat-button>
-        <mat-icon>download</mat-icon>
-        Exportar a Excel
+<section>
+  <nav>
+    <mat-toolbar>
+      <mat-toolbar-row>
+      <button mat-button routerLink="">
+        <mat-icon>home</mat-icon>
+        Inicio
       </button>
-    </a>
-  </mat-toolbar-row>
-  </mat-toolbar>
-</nav>
+      <button mat-button routerLink="/traslados">
+        <mat-icon>list</mat-icon>
+        Ver Traslados
+      </button>
+      <button mat-button routerLink="/nuevo-traslado">
+        <mat-icon>edit-note</mat-icon>
+        Registrar Traslado
+      </button>
+      <a href="{{api_url}}export" target="_blank">
+        <button mat-button>
+          <mat-icon>download</mat-icon>
+          Exportar a Excel
+        </button>
+      </a>
+    </mat-toolbar-row>
+    </mat-toolbar>
+  </nav>
 
-<div class="routezone">
-  <router-outlet />
-</div>
+  <div class="routezone">
+    <router-outlet />
+  </div>
+</section>

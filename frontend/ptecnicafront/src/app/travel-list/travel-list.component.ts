@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
-import {MatTableModule} from '@angular/material/table';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -20,7 +20,7 @@ interface Travel {
 @Component({
   selector: 'app-travel-list',
   standalone: true,
-  imports: [RouterOutlet, RouterModule,MatTableModule,CommonModule, HttpClientModule, MatButtonModule,MatIconModule],
+  imports: [RouterOutlet, RouterModule, MatTableModule, CommonModule, HttpClientModule, MatButtonModule, MatIconModule],
   templateUrl: './travel-list.component.html',
   styleUrl: './travel-list.component.css'
 })
@@ -28,8 +28,8 @@ interface Travel {
 export class TravelListComponent {
   client = inject(HttpClient);
   displayedColumns: string[] = ['id', 'dire_partida', 'dire_termino', 'distancia_km', 'trabajador', 'actions'];
-  traveldata:Travel[] = [];
-  fetchData() {
+  traveldata: Travel[] = [];
+  fetchData(): void {
     this.client.get(API_CONFIG.api_url + "traslados").subscribe((data: any) => {
       console.log(data)
       this.traveldata = data;
@@ -38,5 +38,8 @@ export class TravelListComponent {
   }
   ngOnInit(): void {
     this.fetchData();
+  }
+  buscar(): void {
+    alert("Para buscar por nombre, punto de partida y dirección use el buscador del navegador presionando CTRL+F")
   }
 }
